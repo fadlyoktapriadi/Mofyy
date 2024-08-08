@@ -1,5 +1,7 @@
 package com.example.mofyy
 
+import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,11 +18,12 @@ import com.example.mofyy.ui.component.BottomBar
 import com.example.mofyy.ui.screen.favorite.FavoriteScreen
 import com.example.mofyy.ui.screen.home.HomeScreen
 import com.example.mofyy.ui.screen.profile.ProfileScreen
+import com.example.mofyy.ui.theme.Background
 import com.example.mofyy.ui.theme.MofyyTheme
 
 @Composable
 fun MovieApp(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
 ) {
     Scaffold(
@@ -30,9 +33,7 @@ fun MovieApp(
                 navController,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
-                    .padding(bottom = 10.dp)
-                    .size(53.dp)
+                    .size(55.dp)
             )
         }
     ) { innerPadding ->
@@ -40,6 +41,7 @@ fun MovieApp(
             navController = navController,
             startDestination = Screen.Home.route,
             modifier = Modifier.padding(innerPadding)
+                .background(Background)
         ) {
             composable(Screen.Home.route) {
                 HomeScreen()
